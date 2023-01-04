@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.timespan = new System.Windows.Forms.Label();
-            this.start = new System.Windows.Forms.Button();
-            this.pause = new System.Windows.Forms.Button();
-            this.reset = new System.Windows.Forms.Button();
+            this.startButton = new System.Windows.Forms.Button();
+            this.pauseButton = new System.Windows.Forms.Button();
+            this.resetButton = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // timespan
@@ -45,38 +47,46 @@
             this.timespan.TabIndex = 0;
             this.timespan.Text = "00:00:00:0000";
             // 
-            // start
+            // startButton
             // 
-            this.start.BackColor = System.Drawing.Color.DarkOrange;
-            this.start.Font = new System.Drawing.Font("Segoe UI Emoji", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.start.Location = new System.Drawing.Point(106, 193);
-            this.start.Name = "start";
-            this.start.Size = new System.Drawing.Size(131, 55);
-            this.start.TabIndex = 1;
-            this.start.Text = "Start";
-            this.start.UseVisualStyleBackColor = false;
+            this.startButton.BackColor = System.Drawing.Color.DarkOrange;
+            this.startButton.Font = new System.Drawing.Font("Segoe UI Emoji", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.startButton.Location = new System.Drawing.Point(106, 193);
+            this.startButton.Name = "startButton";
+            this.startButton.Size = new System.Drawing.Size(131, 55);
+            this.startButton.TabIndex = 1;
+            this.startButton.Text = "Start";
+            this.startButton.UseVisualStyleBackColor = false;
+            this.startButton.Click += new System.EventHandler(this.start_Click);
             // 
-            // pause
+            // pauseButton
             // 
-            this.pause.BackColor = System.Drawing.Color.DarkOrange;
-            this.pause.Font = new System.Drawing.Font("Segoe UI Emoji", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.pause.Location = new System.Drawing.Point(322, 193);
-            this.pause.Name = "pause";
-            this.pause.Size = new System.Drawing.Size(131, 55);
-            this.pause.TabIndex = 1;
-            this.pause.Text = "Pause";
-            this.pause.UseVisualStyleBackColor = false;
+            this.pauseButton.BackColor = System.Drawing.Color.DarkOrange;
+            this.pauseButton.Font = new System.Drawing.Font("Segoe UI Emoji", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.pauseButton.Location = new System.Drawing.Point(322, 193);
+            this.pauseButton.Name = "pauseButton";
+            this.pauseButton.Size = new System.Drawing.Size(131, 55);
+            this.pauseButton.TabIndex = 1;
+            this.pauseButton.Text = "Pause";
+            this.pauseButton.UseVisualStyleBackColor = false;
+            this.pauseButton.Click += new System.EventHandler(this.pause_Click);
             // 
-            // reset
+            // resetButton
             // 
-            this.reset.BackColor = System.Drawing.Color.DarkOrange;
-            this.reset.Font = new System.Drawing.Font("Segoe UI Emoji", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.reset.Location = new System.Drawing.Point(538, 193);
-            this.reset.Name = "reset";
-            this.reset.Size = new System.Drawing.Size(131, 55);
-            this.reset.TabIndex = 1;
-            this.reset.Text = "Reset";
-            this.reset.UseVisualStyleBackColor = false;
+            this.resetButton.BackColor = System.Drawing.Color.DarkOrange;
+            this.resetButton.Font = new System.Drawing.Font("Segoe UI Emoji", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.resetButton.Location = new System.Drawing.Point(538, 193);
+            this.resetButton.Name = "resetButton";
+            this.resetButton.Size = new System.Drawing.Size(131, 55);
+            this.resetButton.TabIndex = 1;
+            this.resetButton.Text = "Reset";
+            this.resetButton.UseVisualStyleBackColor = false;
+            this.resetButton.Click += new System.EventHandler(this.reset_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
@@ -84,11 +94,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(800, 293);
-            this.Controls.Add(this.reset);
-            this.Controls.Add(this.pause);
-            this.Controls.Add(this.start);
+            this.Controls.Add(this.resetButton);
+            this.Controls.Add(this.pauseButton);
+            this.Controls.Add(this.startButton);
             this.Controls.Add(this.timespan);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Stopwatch by Gabriel B.";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -98,8 +109,9 @@
         #endregion
 
         private Label timespan;
-        private Button start;
-        private Button pause;
-        private Button reset;
+        private Button startButton;
+        private Button pauseButton;
+        private Button resetButton;
+        private System.Windows.Forms.Timer timer1;
     }
 }
