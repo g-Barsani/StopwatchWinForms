@@ -1,1 +1,2 @@
 # StopwatchWinForms
+![screenshot](screenshot.png)
